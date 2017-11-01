@@ -88,4 +88,4 @@ stages:
     - plugin_xcode
         
       
-    - plugin_fir --build 1.0 --bundleId com.slicol.snake --file bin/ios/output.ipa  --name Snake --token "#{fir.token}" --type iphone --version 1.0
+    - plugin_fir --build "#{version}" --bundleId com.slicol.snake --file bin/ios/output.ipa  --name Snake --token "#{fir.token}" --type iphone --version "#{version}"
