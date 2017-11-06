@@ -46,7 +46,7 @@ stages:
     # --codeSignIdentity 您申请的证书的ID，类似于 "iPhone Developer: xxxx"
     # --provisioningProfile 您申请的证书的provision profile，类似于 "2287a324-856c-4ccd-bb90-047baafbbe42"
     # 更多参数查看左边构建参数配置
-    - plugin_ios_sign --certID soda --password "#{cert.password}" --codeSignIdentity "your-app-store-certification-code-identity" --provisioningProfile "your-app-store-certification-provision-profile" #--ipaFile bin/output.ipa
+    - plugin_ios_sign --certID soda --password "#{cert.password}" --codeSignIdentity "iPhone Developer: junchi he (22AYX4B947)" --provisioningProfile "2287a324-856c-4ccd-bb90-047baafbbe42" #--ipaFile bin/output.ipa
 
     # 下一条指令是用于上传您的ipa文件到fir.im，在上传之前您需要先到http://fir.im申请账号并且生成一个token
     # 一般需要指定一下参数：
