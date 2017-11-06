@@ -1,5 +1,9 @@
 from: mac
 
+envs:
+    build: 1.0.0 
+    version: 1.0.0 
+
 stages:
   build:
     # 下一条指令是安装unity3D
@@ -14,8 +18,8 @@ stages:
     # 一般需要指定以下参数：
     # -p 转换平台类型，可以选择android或者iphone
     # 更多参数查看左边构建参数配置
-    #- plugin_unity3d -p iphone,android
-
+    - plugin_unity3d -p iphone,android
+    
     # 下一条指令是用于上传您的ipa文件到fir.im，在上传之前您需要先到http://fir.im申请账号并且生成一个token
     # 一般需要指定一下参数：
     # --build 构建版本号
@@ -25,7 +29,7 @@ stages:
     # --token 您在fir.im生成的token
     # --type 上传包的类型（android或者ios)
     # --version 包的版本
-    #- plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/output.apk  --name Snake --token "#{fir.token}" --type android --version "#{version}"
+    - plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/output.apk  --name Snake --token "#{fir.token}" --type android --version "#{version}"
     
     # 下一条指令开启xcode工程的默认编译
     # 一般需要指定以下参数:
