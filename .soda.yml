@@ -30,7 +30,7 @@ stages:
     # --token 您在fir.im生成的token
     # --type 上传包的类型（android或者ios)
     # --version 包的版本
-    - plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/output.apk  --name Snake --token "#{fir.token}" --type android --version "#{version}"
+    - plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/android/output.apk  --name Snake --token "#{fir.token}" --type android --version "#{version}"
     
     # 下一条指令开启xcode工程的默认编译
     # 一般需要指定以下参数:
