@@ -37,7 +37,7 @@ stages:
     # --iosName IPA文件名，默认是output.ipa
     # -v, --version xcode版本号 默认是 8.3.3 
     # 更多参数查看左边构建参数配置
-    #- plugin_xcode
+    - plugin_xcode
     
     # 下一条指令开启IOS签名，这个步骤需要您先在证书管理中上传您的个人证书
     # 一般需要指定以下参数：
