@@ -1,0 +1,56 @@
+from: mac
+
+stages:
+  build:
+    # 下一条指令是安装unity3D
+    # 一般需要指定以下参数：
+    # -v unity 版本
+    # --username 您在unity3d上面注册的账户用户名
+    # --password 您在unity3d上面注册的账户的密码
+    # 更多参数查看左边构建参数配置
+    - plugin_unity3d_install -v 5.6.1f1 --username "#{unity.username}" --password "#{unity.password}"
+
+    # 下一条指令是Unity转换成Xcode工程
+    # 一般需要指定以下参数：
+    # -p 转换平台类型，可以选择android或者iphone
+    # 更多参数查看左边构建参数配置
+    #- plugin_unity3d -p iphone,android
+
+    # 下一条指令是用于上传您的ipa文件到fir.im，在上传之前您需要先到http://fir.im申请账号并且生成一个token
+    # 一般需要指定一下参数：
+    # --build 构建版本号
+    # --bundleId 你代码的包名
+    # --file 需要上传的文件
+    # --name 在fir.im上面的显示名字
+    # --token 您在fir.im生成的token
+    # --type 上传包的类型（android或者ios)
+    # --version 包的版本
+    #- plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/output.apk  --name Snake --token "#{fir.token}" --type android --version "#{version}"
+    
+    # 下一条指令开启xcode工程的默认编译
+    # 一般需要指定以下参数:
+    # --iosPath 输出路径， 默认是 bin/ios
+    # --iosName IPA文件名，默认是output.ipa
+    # -v, --version xcode版本号 默认是 8.3.3 
+    # 更多参数查看左边构建参数配置
+    #- plugin_xcode
+    
+    # 下一条指令开启IOS签名，这个步骤需要您先在证书管理中上传您的个人证书
+    # 一般需要指定以下参数：
+    # --certId 上传证书时填写的证书名字
+    # --password 证书密码
+    # --codeSignIdentity 您申请的证书的ID，类似于 "iPhone Developer: xxxx"
+    # --provisioningProfile 您申请的证书的provision profile，类似于 "2287a324-856c-4ccd-bb90-047baafbbe42"
+    # 更多参数查看左边构建参数配置
+    #- plugin_ios_sign --certID soda --password #{cert.password} --codeSignIdentity "your-app-store-certification-code-identity" --provisioningProfile "your-app-store-certification-provision-profile" #--ipaFile bin/output.ipa
+
+    # 下一条指令是用于上传您的ipa文件到fir.im，在上传之前您需要先到http://fir.im申请账号并且生成一个token
+    # 一般需要指定一下参数：
+    # --build 构建版本号
+    # --bundleId 你代码的包名
+    # --file 需要上传的文件
+    # --name 在fir.im上面的显示名字
+    # --token 您在fir.im生成的token
+    # --type 上传包的类型（android或者ios)
+    # --version 包的版本
+    #- plugin_fir --build "#{build}" --bundleId com.soda.snake --file bin/snake.ipa  --name Snake --token "#{fir.token}" --type ios --version "#{version}"
