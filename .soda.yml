@@ -18,7 +18,7 @@ stages:
     # 一般需要指定以下参数：
     # -p 转换平台类型，可以选择android或者iphone
     # 更多参数查看左边构建参数配置
-    - plugin_unity3d -p iphone
+    - plugin_unity3d -p iphone --enableBitCode true
     # - plugin_unity3d -p android
     
     # 下一条指令是用于上传您的ipa文件到fir.im，在上传之前您需要先到http://fir.im申请账号并且生成一个token
